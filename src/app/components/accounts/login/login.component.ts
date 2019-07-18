@@ -10,6 +10,7 @@ import { TokenStorageService } from '../../../auth/token-storage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  hide = true;
   username:String='';
   password:String='';
   userInfo:AuthLoginInfo;
