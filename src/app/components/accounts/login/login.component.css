@@ -1,5 +1,5 @@
 .wrapper{
-    background: url(../../../assets/images/bg.jpg) center;
+    background: url(../../../../assets/images/bg.jpg) center;
     height: 100vh;
 }
 
@@ -22,3 +22,11 @@ a{
     text-decoration:none;
 }
 
+.fbIcon{
+    color: blue;
+    cursor: pointer;
+}
+
+.fbIcon:hover{
+    color: rgb(29, 7, 153);
+}

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../auth/auth.service';
+import { AuthJwtService } from '../../../auth/auth-jwt.service';
 import { FormBuilder, Validators} from '@angular/forms'
 import { AuthLoginInfo } from '../../../auth/login-info';
 import { TokenStorageService } from '../../../auth/token-storage.service';
+import { AuthService,FacebookLoginProvider } from 'angular-6-social-login';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,12 @@ export class LoginComponent implements OnInit {
   isLoginFailed:boolean=false;
   isLoggedIn:boolean=false;
   userLogin:string='';
-  constructor(private auth:AuthService, private fb:FormBuilder,private tokenStorage: TokenStorageService) { }
+
+  constructor(
+    private auth:AuthJwtService, private fb:FormBuilder,
+    private tokenStorage: TokenStorageService,
+    private socialAuthService: AuthService) { }
+
   loginForm=this.fb.group({
     username:['',[Validators.required,Validators.minLength(3),Validators.maxLength(25)]],
     password:['',Validators.required]
@@ -56,5 +62,18 @@ export class LoginComponent implements OnInit {
       }
     );
 
+  }
+  public socialSignIn(socialPlatform : string) {
+    let socialPlatformProvider;
+    if(socialPlatform == "facebook"){
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+    }
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        console.log(socialPlatform+" sign in data : " , userData);
+        // Now sign-in with userData
+        // ...
+      }
+    );
   }
 }
