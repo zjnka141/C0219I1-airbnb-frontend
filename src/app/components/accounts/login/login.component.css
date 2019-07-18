@@ -22,3 +22,11 @@ a{
     text-decoration:none;
 }
 
+.fbIcon{
+    color: blue;
+    cursor: pointer;
+}
+
+.fbIcon:hover{
+    color: rgb(29, 7, 153);
+}

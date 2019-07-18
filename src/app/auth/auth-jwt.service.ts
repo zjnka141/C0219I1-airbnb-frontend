@@ -12,8 +12,13 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+<<<<<<< HEAD:src/app/auth/auth.service.ts
 export class AuthService {
   loginUrl = "http://localhost:8080/login";
+=======
+export class AuthJwtService {
+  loginUrl="http://localhost:8080/login"
+>>>>>>> master:src/app/auth/auth-jwt.service.ts
   constructor(private http: HttpClient) { }
   attemptAuth(userinfo: AuthLoginInfo): Observable<JwtResponse> {
     return this.http.post<JwtResponse>(this.loginUrl, userinfo, httpOptions);
