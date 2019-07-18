@@ -4,6 +4,7 @@ import { FormBuilder, Validators} from '@angular/forms'
 import { AuthLoginInfo } from '../../../auth/login-info';
 import { TokenStorageService } from '../../../auth/token-storage.service';
 import { AuthService,FacebookLoginProvider } from 'angular-6-social-login';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth:AuthJwtService, private fb:FormBuilder,
     private tokenStorage: TokenStorageService,
-    private socialAuthService: AuthService) { }
+    private socialAuthService: AuthService,
+    private router: Router, private route: ActivatedRoute) { }
 
   loginForm=this.fb.group({
     username:['',[Validators.required,Validators.minLength(3),Validators.maxLength(25)]],
@@ -55,6 +57,7 @@ export class LoginComponent implements OnInit {
         this.roles=this.tokenStorage.getAuthorities();
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        this.router.navigate(['../update-password'],{relativeTo: this.route});
       },
       error=>{
         console.log("Error ",error);
@@ -74,6 +77,7 @@ export class LoginComponent implements OnInit {
         console.log(socialPlatform+" sign in data : " , userData);
         // Now sign-in with userData
         // ...
+        this.router.navigate(['../upload-image'],{relativeTo: this.route});
       }
     );
   }
