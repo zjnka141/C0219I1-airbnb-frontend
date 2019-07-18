@@ -15,7 +15,20 @@ import { environment } from '../environments/environment';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { UploadImageComponent } from './components/houses/upload-image/upload-image.component';
 import { RegisterComponent } from './components/accounts/register/register.component';
+import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "angular-6-social-login";
 
+// Configs 
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider("480680596076970")
+      }
+    ]
+  );
+  return config;
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +48,14 @@ import { RegisterComponent } from './components/accounts/register/register.compo
     MaterialModule,
     NgxGalleryModule,
     FormsModule
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
