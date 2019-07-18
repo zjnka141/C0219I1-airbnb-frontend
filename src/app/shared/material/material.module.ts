@@ -3,7 +3,7 @@ import {
   MatProgressBarModule, MatProgressSpinnerModule, MatButtonModule,
   MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule,
   MatCardModule, MatCheckboxModule, MatSelectModule, MatSidenavModule, MatToolbarModule,
-  MatMenuModule,MatSnackBarModule
+  MatMenuModule,MatSnackBarModule,MatTableModule, MatSortModule
 }
   from '@angular/material';
 const MaterialModules = [
@@ -20,7 +20,9 @@ const MaterialModules = [
   MatSidenavModule,
   MatToolbarModule,
   MatMenuModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatTableModule,
+  MatSortModule
 ]
 @NgModule({
   declarations: [],
