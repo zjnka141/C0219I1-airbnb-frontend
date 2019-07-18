@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from "@angular/forms"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './accounts/login/login.component';
+import { LoginComponent } from './components/accounts/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./shared/material/material.module";
@@ -13,7 +13,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { NgxGalleryModule } from 'ngx-gallery';
-import { UploadImageComponent } from './houses/upload-image/upload-image.component';
+import { UploadImageComponent } from './components/houses/upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
