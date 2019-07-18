@@ -11,6 +11,7 @@ import { AuthService,FacebookLoginProvider } from 'angular-6-social-login';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  hide = true;
   username:String='';
   password:String='';
   userInfo:AuthLoginInfo;

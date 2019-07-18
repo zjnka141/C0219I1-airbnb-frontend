@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { ReactiveFormsModule } from "@angular/forms"
+import { ReactiveFormsModule,FormsModule } from "@angular/forms"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/accounts/login/login.component';
@@ -14,6 +14,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { UploadImageComponent } from './components/houses/upload-image/upload-image.component';
+import { RegisterComponent } from './components/accounts/register/register.component';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "angular-6-social-login";
 
 // Configs 
@@ -32,7 +33,8 @@ export function getAuthServiceConfigs() {
   declarations: [
     AppComponent,
     LoginComponent,
-    UploadImageComponent
+    UploadImageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ export function getAuthServiceConfigs() {
     AngularFireStorageModule,
     MaterialModule,
     NgxGalleryModule,
+    FormsModule
     SocialLoginModule
   ],
   providers: [

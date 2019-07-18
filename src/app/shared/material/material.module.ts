@@ -1,18 +1,26 @@
 import { NgModule } from '@angular/core';
-import { MatProgressBarModule,MatProgressSpinnerModule, MatButtonModule, 
-  MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule, 
-  MatCardModule, MatCheckboxModule } 
-from '@angular/material';
-const MaterialModules=[
+import {
+  MatProgressBarModule, MatProgressSpinnerModule, MatButtonModule,
+  MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule,
+  MatCardModule, MatCheckboxModule, MatSelectModule, MatSidenavModule, MatToolbarModule,
+  MatMenuModule,MatSnackBarModule
+}
+  from '@angular/material';
+const MaterialModules = [
   MatProgressBarModule,
   MatProgressSpinnerModule,
-  MatButtonModule, 
+  MatButtonModule,
   MatTabsModule,
   MatIconModule,
   MatFormFieldModule,
   MatInputModule,
   MatCardModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatSnackBarModule
 ]
 @NgModule({
   declarations: [],
