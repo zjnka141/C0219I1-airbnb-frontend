@@ -14,12 +14,17 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { UploadImageComponent } from './houses/upload-image/upload-image.component';
+import { UpdatePasswordComponent } from './accounts/update-password/update-password.component';
+import { ListHouseComponent } from './houses/list-house/list-house.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UploadImageComponent
+    UploadImageComponent,
+    UpdatePasswordComponent,
+    ListHouseComponent,
+  
   ],
   imports: [
     BrowserModule,

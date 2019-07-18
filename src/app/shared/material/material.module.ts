@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { MatProgressBarModule,MatProgressSpinnerModule, MatButtonModule, 
   MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule, 
-  MatCardModule, MatCheckboxModule } 
+  MatCardModule, MatCheckboxModule, MatTableModule, MatSortModule } 
 from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 const MaterialModules=[
   MatProgressBarModule,
   MatProgressSpinnerModule,
@@ -12,7 +14,10 @@ const MaterialModules=[
   MatFormFieldModule,
   MatInputModule,
   MatCardModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatTableModule,
+  MatSortModule,
+  FlexLayoutModule
 ]
 @NgModule({
   declarations: [],
