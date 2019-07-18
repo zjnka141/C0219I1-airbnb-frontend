@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   username:String='';
   password:String='';
   userInfo:AuthLoginInfo;
-  submitted:boolean=false;  
+  submitted:boolean=false;
   roles:string[]=[];
   isLoginFailed:boolean=false;
   isLoggedIn:boolean=false;
