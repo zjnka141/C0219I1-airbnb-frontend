@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/auth.service';
 import { MatSnackBar } from '@angular/material';
-import { RegisterInfo } from 'src/app/auth/register-info';
+import { Account } from 'src/app/models/account';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-register',
@@ -59,12 +59,12 @@ export class RegisterComponent implements OnInit {
   };
 
   form: any = {};
-  userInfo: RegisterInfo;
+  userInfo: Account;
   isRegister = false;
   isRegisterFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router, public snackbar: MatSnackBar) { }
+  constructor(private accountService: AccountService, private fb: FormBuilder, private router: Router, public snackbar: MatSnackBar) { }
 
   ngOnInit() {
     this.createFormRegister();
@@ -115,7 +115,7 @@ export class RegisterComponent implements OnInit {
   onSubmitRegisters() {
     console.log(this.registerForm);
 
-    this.userInfo = new RegisterInfo(
+    this.userInfo = new Account(
       this.form.fullName,
       this.form.username,
       this.form.age,
@@ -126,7 +126,7 @@ export class RegisterComponent implements OnInit {
       this.form.password
     );
 
-    this.authService.registerUser(this.userInfo)
+    this.accountService.registerUser(this.userInfo)
       .subscribe(data => {
         if (this.userInfo == null) {
           this.isRegister = false;

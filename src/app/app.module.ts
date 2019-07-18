@@ -47,7 +47,7 @@ export function getAuthServiceConfigs() {
     AngularFireStorageModule,
     MaterialModule,
     NgxGalleryModule,
-    FormsModule
+    FormsModule,
     SocialLoginModule
   ],
   providers: [
