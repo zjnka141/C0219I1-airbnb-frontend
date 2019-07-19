@@ -16,6 +16,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { UploadImageComponent } from './components/houses/upload-image/upload-image.component';
 import { RegisterComponent } from './components/accounts/register/register.component';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "angular-6-social-login";
+import { PostnewsComponent } from './components/houses/postnews/postnews.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -34,8 +35,14 @@ export function getAuthServiceConfigs() {
     AppComponent,
     LoginComponent,
     UploadImageComponent,
-    RegisterComponent
+    RegisterComponent,
+    PostnewsComponent
   ],
+
+  entryComponents: [
+    UploadImageComponent
+  ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
