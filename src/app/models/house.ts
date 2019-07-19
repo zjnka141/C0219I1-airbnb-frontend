@@ -1,12 +1,35 @@
 export class House {
-    id: number;
+    id: Number;
     name: String;
-    status: String;
+    typeOfHouse: String;
+    typeOfRoom: String;
     address: String;
-    constructor(id, name, status, address) {
-        this.id = id;
+    bathroom: Number;
+    bedroom: Number;
+    description: String;
+    priceByNight: String;
+    priceByMonth: String;
+    status: String;
+    image: String;
+    area: String
+
+    constructor(name: String, typeOfHouse: String, typeOfRoom: String,
+        bathroom: Number, bedroom: Number,
+        address: String, description: String, priceByNight: String,
+        priceByMonth: String, status: String, image: String, area: String) {
+
         this.name = name;
-        this.status = status;
+        this.typeOfHouse = typeOfHouse;
+        this.typeOfRoom = typeOfRoom;
+        this.bathroom = bathroom;
+        this.bedroom = bedroom;
         this.address = address;
+        this.description = description;
+        this.priceByNight = priceByNight;
+        this.priceByMonth = priceByMonth;
+        this.status = status;
+        this.image = image;
+        this.area = area;
     }
-} 
+}
+
