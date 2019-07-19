@@ -17,6 +17,9 @@ import { UploadImageComponent } from './components/houses/upload-image/upload-im
 import { RegisterComponent } from './components/accounts/register/register.component';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "angular-6-social-login";
 import { PostnewsComponent } from './components/houses/postnews/postnews.component';
+import { UpdatePasswordComponent } from './components/accounts/update-password/update-password.component';
+import { ListHouseComponent } from './components/houses/list-house/list-house.component';
+import { httpInterceptorProviders } from './auth/auth-interceptor';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -37,6 +40,8 @@ export function getAuthServiceConfigs() {
     UploadImageComponent,
     RegisterComponent,
     PostnewsComponent
+    UpdatePasswordComponent,
+    ListHouseComponent
   ],
 
   entryComponents: [
@@ -60,8 +65,9 @@ export function getAuthServiceConfigs() {
   providers: [
     {
       provide: AuthServiceConfig,
-      useFactory: getAuthServiceConfigs
-    }
+      useFactory: getAuthServiceConfigs,
+    },
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

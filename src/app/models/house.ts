@@ -32,3 +32,4 @@ export class House {
         this.area = area;
     }
 }
+
