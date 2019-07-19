@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "upload-image", component: UploadImageComponent },
   { path: "register", component: RegisterComponent },
-  { path: "postnews", component: PostnewsComponent }
+  { path: "postnews", component: PostnewsComponent },
   { path: "update-password", component: UpdatePasswordComponent}
 ];
 

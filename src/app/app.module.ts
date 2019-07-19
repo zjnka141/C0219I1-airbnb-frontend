@@ -39,7 +39,7 @@ export function getAuthServiceConfigs() {
     LoginComponent,
     UploadImageComponent,
     RegisterComponent,
-    PostnewsComponent
+    PostnewsComponent,
     UpdatePasswordComponent,
     ListHouseComponent
   ],

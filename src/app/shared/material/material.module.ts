@@ -4,7 +4,7 @@ import {
   MatIconModule, MatTabsModule, MatFormFieldModule, MatInputModule,
   MatCardModule, MatCheckboxModule, MatSelectModule, MatSidenavModule, MatToolbarModule,
   MatMenuModule,MatSnackBarModule,MatTooltipModule,MatStepperModule,MatDialogModule,
-  MatTableModule, MatSortModule, MatDialogModule
+  MatTableModule, MatSortModule
 }
   from '@angular/material';
 const MaterialModules = [
