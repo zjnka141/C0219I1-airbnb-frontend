@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import 'hammerjs';
+import { LoginStatusService } from 'src/app/shared/login-status.service';
 
 @Component({
   selector: 'app-upload-image',
@@ -24,13 +25,20 @@ export class UploadImageComponent implements OnInit {
   files: Observable<any>;
   success = false;
   invalidFile = false;
-  constructor(public afs: AngularFirestore,
-    public storage: AngularFireStorage) {
-  }
+  loginStatus: Boolean = false;
+  constructor(
+    public afs: AngularFirestore, public storage: AngularFireStorage,
+    private loginStatusService: LoginStatusService
+  ) { }
   ngOnChanges() {
 
   }
   ngOnInit() {
+    this.loginStatusService.status.subscribe(status => {
+      console.log(status);
+      this.loginStatus = status;
+    });
+    console.log(this.loginStatus);
     this.files = this.afs.collection('files').valueChanges();
     this.galleryOptions = [
       { "imageAutoPlay": true, "imageAutoPlayPauseOnHover": true, "previewAutoPlay": true, "previewAutoPlayPauseOnHover": true },
@@ -47,8 +55,8 @@ export class UploadImageComponent implements OnInit {
 
   detectFiles(event) {
     this.uploadFiles = [];
-    this.imageUrls=[];
-    this.galleryImages=[];
+    this.imageUrls = [];
+    this.galleryImages = [];
     this.uploading = false;
     this.success = false;
     this.invalidFile = false;

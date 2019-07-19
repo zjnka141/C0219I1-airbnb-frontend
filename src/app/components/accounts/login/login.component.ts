@@ -5,6 +5,7 @@ import { AuthLoginInfo } from '../../../auth/login-info';
 import { TokenStorageService } from '../../../auth/token-storage.service';
 import { AuthService,FacebookLoginProvider } from 'angular-6-social-login';
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoginStatusService } from 'src/app/shared/login-status.service';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,9 @@ export class LoginComponent implements OnInit {
     private auth:AuthJwtService, private fb:FormBuilder,
     private tokenStorage: TokenStorageService,
     private socialAuthService: AuthService,
-    private router: Router, private route: ActivatedRoute) { }
+    private router: Router, private route: ActivatedRoute,
+    private loginStatusService: LoginStatusService
+    ) { }
 
   loginForm=this.fb.group({
     username:['',[Validators.required,Validators.minLength(3),Validators.maxLength(25)]],
@@ -57,12 +60,15 @@ export class LoginComponent implements OnInit {
         this.roles=this.tokenStorage.getAuthorities();
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        this.loginStatusService.changeState(true);
+        console.log(this.loginStatusService.status);
         this.router.navigate(['../update-password'],{relativeTo: this.route});
       },
       error=>{
         console.log("Error ",error);
         this.isLoginFailed = true;
         this.isLoggedIn = false;
+        this.loginStatusService.changeState(false);
       }
     );
 
@@ -77,6 +83,7 @@ export class LoginComponent implements OnInit {
         console.log(socialPlatform+" sign in data : " , userData);
         // Now sign-in with userData
         // ...
+        this.loginStatusService.changeState(true);
         this.router.navigate(['../upload-image'],{relativeTo: this.route});
       }
     );

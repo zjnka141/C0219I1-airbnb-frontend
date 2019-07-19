@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
+import { LoginStatusService } from 'src/app/shared/login-status.service';
 
 @Component({
   selector: 'app-update-password',
@@ -13,8 +14,9 @@ export class UpdatePasswordComponent implements OnInit {
   currentPassword: String;
   message: String;
   id: number = 1;
+  loginStatus: Boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private accountService: AccountService) { }
+  constructor(private formBuilder: FormBuilder, private accountService: AccountService, private loginStatusService: LoginStatusService) { }
 
   comparePassword(c: AbstractControl) {
     const v = c.value;
@@ -26,6 +28,10 @@ export class UpdatePasswordComponent implements OnInit {
 
   }
   ngOnInit() {
+    this.loginStatusService.status.subscribe(status => {
+      console.log(status);
+      this.loginStatus = status;
+    });
     this.registerForm = this.formBuilder.group({
       currentPassword: ['', Validators.required],
       password: this.formBuilder.group({

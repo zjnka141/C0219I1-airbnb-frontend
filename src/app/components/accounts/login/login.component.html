@@ -35,7 +35,7 @@
         <button class="mt-4" mat-raised-button color="primary" type="submit" (click)="onSubmit()">
           <i class="fas fa-sign-in-alt"></i> Login
         </button>
-        <p class="text-center mt-4">Not a member?<a href="" class="ml-4"><i class="fas fa-user-plus"></i>  Register</a></p>
+        <p class="text-center mt-4">Not a member?<a [routerLink]="[ '/register' ]" class="ml-4"><i class="fas fa-user-plus"></i>  Register</a></p>
         <p class="text-center mb-4">or sign in with: <span class="fbIcon ml-2" (click)="socialSignIn('facebook')"><i class="fab fa-facebook-square" style="font-size:30px;"></i></span></p>
       </form>
     </ng-template>
