@@ -169,8 +169,8 @@ export class PostnewsComponent implements OnInit {
     console.log(this.ThirdFormGroup);
 
     const UPLOAD_IMAGE = this.dialog.open(UploadImageComponent, {
-      width: '900px',
-      height: '700px',
+      width: '100%',
+      height: '600px',
       data: {}
     });
     UPLOAD_IMAGE.afterClosed().subscribe(result => {
