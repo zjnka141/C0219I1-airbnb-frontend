@@ -1,6 +1,7 @@
 <div class="wrapper">
     <!-- MatStepper -->
     <mat-card>
+        <mat-horizontal-stepper [linear]="true" #stepper>
         <mat-horizontal-stepper [linear]=isLinear #stepper>
             <!-- MatStepper 1 -->
             <mat-step [stepControl]="firstFormGroup">
@@ -191,7 +192,7 @@
             <mat-step [stepControl]="ThirdFormGroup">
                 <form [formGroup]="ThirdFormGroup" novalidate>
                     <ng-template matStepLabel>Upload Your Image</ng-template>
-                    <button mat-button>Open File Image</button>
+                    <button mat-raised-button color="accent" (click)="onsubmitThirdForm()">Open File Image</button>
                     <div style="margin-left: 70%">
                         <button mat-icon-button matStepperPrevious matTooltip="Come Back"
                             matTooltipClass="example-tooltip">

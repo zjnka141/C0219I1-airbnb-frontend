@@ -1,51 +1,45 @@
-<div class="container" style="text-align:center">
-    <div *ngIf="loginStatus">
-        <mat-dialog-content>
-
-            <p class="text-white"
-                style="font-size: 22px; background: linear-gradient(to right, #180291 0%, #ec16a5 100%); line-height: 100px">
-                <i class="fas fa-cloud-upload-alt"></i> Upload Images</p>
-            <input #fileInput multiple type="file" accept='image/*' (change)="detectFiles($event)" hidden />
-            <div class="clearfix">
-                <button mat-raised-button color="primary" (click)="fileInput.click()" class="float-left">
-                    <i class="fas fa-file-image"></i> Choose Images</button>
-                <button mat-raised-button color="accent" (click)="onUpload()" [disabled]="invalidFile"
-                    class="float-right">
-                    <i class="fas fa-file-upload"></i> Upload</button>
-            </div>
-            <p class="alert alert-danger" *ngIf="invalidFile">Type of file is not image. || Or size of file exceeds the
-                limit
-                5Mb </p>
-            <div class="imageWrapper">
-                <div *ngIf="!success && !uploading">
-                    <div *ngFor="let url of urls; let i = index" class="imageUpload">
-                        <img [src]="url" class="rounded" height="180px">
-                        <div class="removeImage" (click)="removeImage(i)">
-                            <p style="text-align: center; line-height:180px;color: red;font-weight: 500"><i
-                                    class="fas fa-minus-circle"></i> Remove</p>
-                        </div>
-                    </div>
-                    <!-- <mat-progress-bar mode="determinate" value="{{upload.percentage | async}}" style="width:100%;padding-left: 5px;"></mat-progress-bar> -->
-                </div>
-                <div class="text-center" *ngIf="uploading">
-                    <mat-progress-spinner mode="indeterminate" style="margin:auto;"></mat-progress-spinner>
-                </div>
-                <p *ngIf="success" class="alert alert-success"><i class="fas fa-check-circle"></i> Upload image
-                    successfully
-                </p>
-            </div>
-
-        </mat-dialog-content>
-        <mat-dialog-actions style="margin-top:20px; float:right">
-            <button mat-raised-button [mat-dialog-close]="true" color="primary">Next</button>
-        </mat-dialog-actions>
+<div *ngIf="loginStatus" style="width:100%;">
+    <p class="text-white text-center"
+        style="font-size: 22px; background: linear-gradient(to right, #180291 0%, #ec16a5 100%); line-height: 100px">
+        <i class="fas fa-cloud-upload-alt"></i> Upload Images</p>
+    <input #fileInput multiple type="file" accept='image/*' (change)="detectFiles($event)" hidden />
+    <div class="clearfix">
+        <button mat-raised-button color="primary" (click)="fileInput.click()" class="float-left">
+            <i class="fas fa-file-image"></i> Choose Images</button>
+        <button mat-raised-button color="accent" (click)="onUpload()" [disabled]="invalidFile" class="float-right">
+            <i class="fas fa-file-upload"></i> Upload</button>
     </div>
-    <div *ngIf="!loginStatus" style="margin-top: 50px;">
-        <p class="alert alert-danger">
-            Sorry! You don't have permission for this action!
-            Please <a href="/login">Login</a>
+    <p class="alert alert-danger" *ngIf="invalidFile">Type of file is not image. || Or size of file exceeds the
+        limit
+        5Mb </p>
+    <div class="imageWrapper">
+        <div *ngIf="!success && !uploading">
+            <div *ngFor="let url of urls; let i = index" class="imageUpload">
+                <img [src]="url" class="rounded" height="180px">
+                <div class="removeImage" (click)="removeImage(i)">
+                    <p style="text-align: center; line-height:180px;color: red;font-weight: 500"><i
+                            class="fas fa-minus-circle"></i> Remove</p>
+                </div>
+            </div>
+            <!-- <mat-progress-bar mode="determinate" value="{{upload.percentage | async}}" style="width:100%;padding-left: 5px;"></mat-progress-bar> -->
+        </div>
+        <div class="text-center" *ngIf="uploading">
+            <mat-progress-spinner mode="indeterminate" style="margin:auto;"></mat-progress-spinner>
+        </div>
+        <p *ngIf="success" class="alert alert-success"><i class="fas fa-check-circle"></i> Upload image
+            successfully
         </p>
     </div>
+    <mat-dialog-actions style="margin-top:20px; float:right">
+        <button mat-raised-button [mat-dialog-close]="true" color="primary">Next</button>
+    </mat-dialog-actions>
+
+</div>
+<div *ngIf="!loginStatus" style="margin-top: 50px;">
+    <p class="alert alert-danger">
+        Sorry! You don't have permission for this action!
+        Please <a href="/login">Login</a>
+    </p>
 </div>
 
 
