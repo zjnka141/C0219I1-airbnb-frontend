@@ -43,8 +43,7 @@ export class PostnewsComponent implements OnInit {
     "Not yet leased",
     "Leased"
   ]
-  imgUrl:Array<String> = [];
-  
+
   validation_messages = {
     'purpose': [
       { type: 'required', message: 'Please select purpose' },
@@ -91,6 +90,7 @@ export class PostnewsComponent implements OnInit {
   secondFormGroup: FormGroup;
   ThirdFormGroup: FormGroup;
   FinalFormGroup: FormGroup;
+  imgUrl: Array<String> = [];
 
   constructor(private fb: FormBuilder, public dialog: MatDialog,
     private houseService: HouseService, public snackbar: MatSnackBar,
@@ -101,9 +101,6 @@ export class PostnewsComponent implements OnInit {
     this.createSecondForm();
     this.createThirdForm();
     this.createFinalForm();
-    this.getImageUrlService.url.subscribe(url=>{
-      this.imgUrl=url;
-    })
   }
 
   createFirstForm() {
@@ -182,8 +179,14 @@ export class PostnewsComponent implements OnInit {
       height: '700px',
       data: {}
     });
+
     UPLOAD_IMAGE.afterClosed().subscribe(result => {
       console.log(`fix fix aaaaa ${result}`);
+    });
+
+    this.getImageUrlService.url.subscribe(url => {
+      this.imgUrl = url;
+      console.log("Image url in postnews component:::: ", this.imgUrl);
     })
   }
 
@@ -195,7 +198,6 @@ export class PostnewsComponent implements OnInit {
 
   onsubmitFinalForm() {
     console.log(this.FinalFormGroup);
-    console.log("Image url in postnews component:::: ",this.imgUrl);
     this.houseInfo = new House(
       this.form.name,
       this.form.typeHouse,
@@ -207,7 +209,7 @@ export class PostnewsComponent implements OnInit {
       this.form.priceByNight,
       this.form.priceByMonth,
       this.form.status,
-      this.form.image,
+      this.imgUrl.join("||---||"),
       this.form.area
     );
 
