@@ -2,42 +2,44 @@
 <mat-drawer-container autosize>
     <div class="sidenav-content">
         <mat-toolbar color="primary">
-            <mat-toolbar-row>
-                <button style="margin-left: 180px" mat-icon-button routerLink="/" matTooltip="Home"
-                    matTooltipClass="example-tooltip">
+            <div class="container clearfix">
+                <button mat-icon-button routerLink="/" matTooltip="Home" matTooltipClass="example-tooltip">
                     <mat-icon>home</mat-icon>
                     <span style="margin-top: 10px">BookingHouse.vn</span>
                 </button>
-                <span class="spacer"></span>
-                <button mat-icon-button (click)="pageRefresh()" matTooltip="Refresh" matTooltipClass="example-tooltip">
-                    <mat-icon>refresh</mat-icon>
-                </button>
-                <button mat-icon-button matTooltip="Message" matTooltipClass="example-tooltip">
-                    <mat-icon>message</mat-icon>
-                </button>
-                <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="User" matTooltipClass="example-tooltip">
-                    <mat-icon>person</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
-                        <mat-icon>note_add</mat-icon>
-                        <span>Post News</span>
+                <div style="float: right;">
+                    <button mat-icon-button (click)="pageRefresh()" matTooltip="Refresh"
+                        matTooltipClass="example-tooltip">
+                        <mat-icon>refresh</mat-icon>
                     </button>
-                    <button mat-menu-item>
-                        <mat-icon>notifications</mat-icon>
-                        <span>Notification</span>
+                    <button mat-icon-button matTooltip="Message" matTooltipClass="example-tooltip">
+                        <mat-icon>message</mat-icon>
                     </button>
-                    <button mat-menu-item>
-                        <mat-icon>email</mat-icon>
-                        <span>Check mail</span>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="User"
+                        matTooltipClass="example-tooltip">
+                        <mat-icon>person</mat-icon>
                     </button>
-                    <button mat-menu-item>
-                        <mat-icon>redo</mat-icon>
-                        <span>Logout</span>
-                    </button>
-                </mat-menu>
-            </mat-toolbar-row>
-            <router-outlet></router-outlet>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <mat-icon>note_add</mat-icon>
+                            <span>Post News</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>notifications</mat-icon>
+                            <span>Notification</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>email</mat-icon>
+                            <span>Check mail</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>redo</mat-icon>
+                            <span>Logout</span>
+                        </button>
+                    </mat-menu>
+                </div>
+
+            </div>
         </mat-toolbar>
     </div>
 </mat-drawer-container>

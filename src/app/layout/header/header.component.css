@@ -1,11 +1,4 @@
-.mat-toolbar.mat-primary {
+.mat-toolbar{
    background: rgba(11, 155, 212, 0.842);
    color:#fff;
   }
-
-.spacer {
-    margin-right: 1000px;
-}
-
-
-
