@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
     "Other"
   ];
 
+
   validation_messages = {
     'fullName': [
       { type: 'required', message: 'Full Name is required' },
@@ -134,15 +135,22 @@ export class RegisterComponent implements OnInit {
         this.isRegister = true;
         this.isRegisterFailed = false;
         const login = "Please Login";
-        const snackbarRep = this.snackbar.open('Register Successfully!', login, {
+        const snackbarRef = this.snackbar.open('Register Successfully!', login, {
           horizontalPosition: 'center',
         });
+        snackbarRef.onAction().subscribe(() => {
+          this.router.navigate(['/login']);
+        })
         console.log(data);
       },
         error => {
           this.errorMessage = error.error.message;
+          console.log("aaaaaaaa", error);
           this.isRegisterFailed = true;
-          console.log(error);
+          let errorMessage = this.snackbar.open('UserName Is Already Exist', 'Register agian', {
+            horizontalPosition: 'center',
+          });
+          console.log(errorMessage);
         }
       )
   }

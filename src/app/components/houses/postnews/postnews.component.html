@@ -2,9 +2,10 @@
     <!-- MatStepper -->
     <mat-card>
         <mat-horizontal-stepper [linear]="true" #stepper>
+        <mat-horizontal-stepper [linear]=isLinear #stepper>
             <!-- MatStepper 1 -->
             <mat-step [stepControl]="firstFormGroup">
-                <form [formGroup]="firstFormGroup" (ngSubmit)="onsubmitFisrtForm()">
+                <form [formGroup]="firstFormGroup" novalidate>
                     <ng-template matStepLabel>Advertising purposes</ng-template>
                     <mat-form-field class="full-width">
                         <mat-select matInput placeholder="What is your purposes ?" formControlName="purpose" required>
@@ -29,12 +30,13 @@
 
             <!-- MatStepper 2 -->
             <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
-                <form [formGroup]="secondFormGroup" (ngSubmit)="onsubmitSecondForm()">
+                <form [formGroup]="secondFormGroup" novalidate>
                     <ng-template matStepLabel>Fill yours data</ng-template>
 
                     <!-- Name Of House -->
                     <mat-form-field class="half-width">
-                        <input matInput placeholder="Name Of House" formControlName="name" required>
+                        <input matInput placeholder="Name Of House" formControlName="name" [(ngModel)]="form.name"
+                            required>
                         <mat-error *ngFor="let validation of validation_messages.name">
                             <mat-error class="error-message"
                                 *ngIf="secondFormGroup.get('name').hasError(validation.type) && (secondFormGroup.get('name').dirty || secondFormGroup.get('name').touched)">
@@ -44,9 +46,10 @@
 
                     <!-- BathRooms -->
                     <mat-form-field class="half-width" style="margin-left: 50px">
-                        <mat-select matInput placeholder="Bath Rooms" formControlName="bathroom" required>
+                        <mat-select matInput placeholder="Bath Rooms" formControlName="bathroom"
+                            [(ngModel)]="form.numberOfBathrooms" required>
                             <mat-option>None</mat-option>
-                            <mat-option *ngFor="let bathroom of bathrooms" [value]="bathroom">
+                            <mat-option *ngFor="let bathroom of bathroomes" [value]="bathroom">
                                 {{ bathroom }}
                             </mat-option>
                         </mat-select>
@@ -59,22 +62,23 @@
 
                     <!-- Type Of House -->
                     <mat-form-field class="half-width">
-                        <mat-select matInput placeholder="Type Of House" formControlName="typeOfHouse" required>
+                        <mat-select matInput placeholder="Type Of House" formControlName="typeHouse"
+                            [(ngModel)]="form.typeHouse" required>
                             <mat-option>None</mat-option>
                             <mat-option *ngFor="let typeOfHouse of typeOfHouses" [value]="typeOfHouse">
                                 {{ typeOfHouse }}
                             </mat-option>
                         </mat-select>
-                        <mat-error *ngFor="let validation of validation_messages.typeOfHouse">
+                        <mat-error *ngFor="let validation of validation_messages.typeHouse">
                             <mat-error class="error-message"
-                                *ngIf="secondFormGroup.get('typeOfHouse').hasError(validation.type) && (secondFormGroup.get('typeOfHouse').dirty || secondFormGroup.get('typeOfHouse').touched)">
+                                *ngIf="secondFormGroup.get('typeHouse').hasError(validation.type) && (secondFormGroup.get('typeHouse').dirty || secondFormGroup.get('typeHouse').touched)">
                                 {{validation.message}}</mat-error>
                         </mat-error>
                     </mat-form-field>
 
                     <!-- Area -->
                     <mat-form-field class="half-width" style="margin-left: 50px">
-                        <input matInput placeholder="Area" formControlName="area" required>
+                        <input matInput placeholder="Area" formControlName="area" [(ngModel)]="form.area" required>
                         <label matSuffix>m2</label>
                         <mat-error *ngFor="let validation of validation_messages.area">
                             <mat-error class="error-message"
@@ -86,22 +90,24 @@
 
                     <!-- Type Of Room -->
                     <mat-form-field class="half-width">
-                        <mat-select matInput placeholder="Type Of Room" formControlName="typeOfRoom" required>
+                        <mat-select matInput placeholder="Type Of Room" formControlName="typeRoom"
+                            [(ngModel)]="form.typeRoom" required>
                             <mat-option>None</mat-option>
                             <mat-option *ngFor="let typeOfRoom of typeOfRooms" [value]="typeOfRoom">
                                 {{ typeOfRoom }}
                             </mat-option>
                         </mat-select>
-                        <mat-error *ngFor="let validation of validation_messages.typeOfRoom">
+                        <mat-error *ngFor="let validation of validation_messages.typeRoom">
                             <mat-error class="error-message"
-                                *ngIf="secondFormGroup.get('typeOfRoom').hasError(validation.type) && (secondFormGroup.get('typeOfRoom').dirty || secondFormGroup.get('typeOfRoom').touched)">
+                                *ngIf="secondFormGroup.get('typeRoom').hasError(validation.type) && (secondFormGroup.get('typeRoom').dirty || secondFormGroup.get('typeRoom').touched)">
                                 {{validation.message}}</mat-error>
                         </mat-error>
                     </mat-form-field>
 
                     <!-- Description -->
                     <mat-form-field class="half-width" style="margin-left: 50px">
-                        <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+                        <textarea matInput placeholder="Description" formControlName="description"
+                            [(ngModel)]="form.describe" required></textarea>
                         <mat-error *ngFor="let validation of validation_messages.description">
                             <mat-error class="error-message"
                                 *ngIf="secondFormGroup.get('description').hasError(validation.type) && (secondFormGroup.get('description').dirty || secondFormGroup.get('description').touched)">
@@ -111,7 +117,8 @@
 
                     <!-- Address -->
                     <mat-form-field class="half-width">
-                        <input matInput placeholder="Address Of House" formControlName="address" required>
+                        <input matInput placeholder="Address Of House" formControlName="address"
+                            [(ngModel)]="form.address" required>
                         <mat-error *ngFor="let validation of validation_messages.address">
                             <mat-error class="error-message"
                                 *ngIf="secondFormGroup.get('address').hasError(validation.type) && (secondFormGroup.get('address').dirty || secondFormGroup.get('address').touched)">
@@ -121,7 +128,8 @@
 
                     <!-- Price By Night -->
                     <mat-form-field class="half-width" style="margin-left: 50px">
-                        <input matInput placeholder="Price By Night" formControlName="priceByNight" required>
+                        <input matInput placeholder="Price By Night" formControlName="priceByNight"
+                            [(ngModel)]="form.priceByNight" required>
                         <label matSuffix>One/Night</label>
                         <mat-error *ngFor="let validation of validation_messages.priceByNight">
                             <mat-error class="error-message"
@@ -132,9 +140,10 @@
 
                     <!-- BedRooms -->
                     <mat-form-field class="half-width">
-                        <mat-select matInput placeholder="Bed Rooms" formControlName="bedroom" required>
+                        <mat-select matInput placeholder="Bed Rooms" formControlName="bedroom"
+                            [(ngModel)]="form.numberOfBedrooms" required>
                             <mat-option>None</mat-option>
-                            <mat-option *ngFor="let bedroom of bedrooms" [value]="bedroom">
+                            <mat-option *ngFor="let bedroom of bedroomes" [value]="bedroom">
                                 {{ bedroom }}
                             </mat-option>
                         </mat-select>
@@ -147,7 +156,8 @@
 
                     <!-- Price By Month -->
                     <mat-form-field class="half-width" style="margin-left: 50px">
-                        <input matInput placeholder="Price By Month" formControlName="priceByMonth" required>
+                        <input matInput placeholder="Price By Month" formControlName="priceByMonth"
+                            [(ngModel)]="form.priceByMonth" required>
                         <label matSuffix>One/Month</label>
                         <mat-error *ngFor="let validation of validation_messages.priceByMonth">
                             <mat-error class="error-message"
@@ -158,7 +168,7 @@
 
                     <!-- Status -->
                     <mat-form-field class="half-width">
-                        <mat-select matInput placeholder="Status" formControlName="status">
+                        <mat-select matInput placeholder="Status" formControlName="status" [(ngModel)]="form.status">
                             <mat-option>None</mat-option>
                             <mat-option *ngFor="let status of statuses" [value]="status">
                                 {{ status }}
@@ -180,7 +190,7 @@
 
             <!-- MatStepper 3 -->
             <mat-step [stepControl]="ThirdFormGroup">
-                <form [formGroup]="ThirdFormGroup" >
+                <form [formGroup]="ThirdFormGroup" novalidate>
                     <ng-template matStepLabel>Upload Your Image</ng-template>
                     <button mat-raised-button color="accent" (click)="onsubmitThirdForm()">Open File Image</button>
                     <div style="margin-left: 70%">
