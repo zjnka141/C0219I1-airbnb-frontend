@@ -169,8 +169,9 @@ export class PostnewsComponent implements OnInit {
     console.log(this.firstFormGroup);
   }
 
-  onsubmitSecondForm() {
+  onSubmitSecondForm() {
     console.log(this.secondFormGroup);
+    this.getImageUrlService.updateUrl([]);
   }
 
   onsubmitThirdForm() {
