@@ -1,11 +1,11 @@
 export class Account {
-    id: Number;
+    id?: Number;
     fullName: String;
     username: String;
-    age: String;
-    gender: String;
-    phone: String;
-    address: String;
+    age?: String;
+    gender?: String;
+    phone?: String;
+    address?: String;
     email: String;
     password: String;
 
