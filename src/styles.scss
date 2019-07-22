@@ -3,6 +3,10 @@
 
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+.body {
+    font-family: Roboto, Arial, Helvetica sans-serif;
+}
+
 .example-tooltip {
     font-size: 70%;
     background: rgb(197, 29, 113);
