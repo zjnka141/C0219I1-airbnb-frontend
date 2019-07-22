@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, } from '@angular/forms';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { UploadImageComponent } from '../upload-image/upload-image.component';
 import { House } from 'src/app/models/house';
 import { HouseService } from 'src/app/services/house.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,15 +26,15 @@ export class PostnewsComponent implements OnInit {
   ]
 
   typeOfRooms = [
-    "V.I.P",
-    "Often"
+    "VIP",
+    "Standard"
   ]
 
-  bedrooms = [
+  bedroomes = [
     "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
   ]
 
-  bathrooms = [
+  bathroomes = [
     "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
   ]
 
@@ -47,12 +48,15 @@ export class PostnewsComponent implements OnInit {
       { type: 'required', message: 'Please select purpose' },
     ],
     'name': [
-      { type: 'required', message: 'Please select name' },
+      { type: 'required', message: 'Please select Name Of House' },
+      { type: 'minlength', message: 'House Name must be at least 5 characters long' },
+      { type: 'maxlength', message: 'House Name cannot be more than 25 characters long' },
+      { type: 'pattern', message: 'House Name no spaces please' }
     ],
-    'typeOfHouse': [
+    'typeHouse': [
       { type: 'required', message: 'Please select type of house' },
     ],
-    'typeOfRoom': [
+    'typeRoom': [
       { type: 'required', message: 'Please select type of room' },
     ],
     'address': [
@@ -86,13 +90,8 @@ export class PostnewsComponent implements OnInit {
   ThirdFormGroup: FormGroup;
   FinalFormGroup: FormGroup;
 
-  form: any = {};
-  houseInfo: House;
-  isPostNews = false;
-  isPostNewsFailed = false;
-  errorMessage = '';
-
-  constructor(private fb: FormBuilder, public dialog: MatDialog, private houseService: HouseService) { }
+  constructor(private fb: FormBuilder, public dialog: MatDialog,
+    private houseService: HouseService, public snackbar: MatSnackBar, private router: Router) { }
 
   ngOnInit() {
     this.createFirstForm();
@@ -113,11 +112,14 @@ export class PostnewsComponent implements OnInit {
     this.secondFormGroup = this.fb.group({
       name: new FormControl('', Validators.compose([
         Validators.required,
+        Validators.maxLength(25),
+        Validators.minLength(5),
+        Validators.pattern(/^\S+.*\S+$/)
       ])),
-      typeOfHouse: new FormControl('', Validators.compose([
+      typeHouse: new FormControl('', Validators.compose([
         Validators.required,
       ])),
-      typeOfRoom: new FormControl('', Validators.compose([
+      typeRoom: new FormControl('', Validators.compose([
         Validators.required,
       ])),
       address: new FormControl('', Validators.compose([
@@ -174,12 +176,56 @@ export class PostnewsComponent implements OnInit {
       data: {}
     });
     UPLOAD_IMAGE.afterClosed().subscribe(result => {
-      console.log(`aaaa ${result}`);
+      console.log(`fix fix aaaaa ${result}`);
     })
   }
 
+  form: any = {};
+  houseInfo: House;
+  isPostNews = false;
+  isPostNewsFailed = false;
+  errorMessage = '';
+
   onsubmitFinalForm() {
     console.log(this.FinalFormGroup);
+
+    this.houseInfo = new House(
+      this.form.name,
+      this.form.typeHouse,
+      this.form.typeRoom,
+      this.form.numberOfBathrooms,
+      this.form.numberOfBedrooms,
+      this.form.address,
+      this.form.describe,
+      this.form.priceByNight,
+      this.form.priceByMonth,
+      this.form.status,
+      this.form.image,
+      this.form.area
+    );
+
+    this.houseService.createNewHouse(this.houseInfo)
+      .subscribe(data => {
+        if (this.houseInfo == null) {
+          this.isPostNews = false;
+        } else {
+          this.isPostNews = true;
+          this.isPostNewsFailed = false;
+          let snackbarRef = this.snackbar.open('Post News House Successfully!', 'Come Back Home', {
+            horizontalPosition: 'center',
+          });
+          snackbarRef.onAction().subscribe(() => {
+            this.router.navigate(['/']);
+          })
+        }
+        console.log(data);
+      },
+        error => {
+          this.errorMessage = error.error.message;
+          console.log('fix fix aaaaaa', error);
+          this.isPostNewsFailed = true;
+        }
+      )
   }
 }
 
