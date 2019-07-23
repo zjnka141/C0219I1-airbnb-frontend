@@ -1,0 +1,53 @@
+.container {
+    width: 30%;
+    background-color: #312f2f96;
+    margin-top: 80px;
+    border-radius: 20px;
+    // padding-top: 31px;
+    // padding-bottom: 16px;
+    // padding-left: 10px;
+    // padding-right: 10px;
+    padding: 60px;
+}
+.form-account input,select{
+    border-radius: 10px!important;
+    background-color: #f8f9fad6;
+}
+
+.form-account h2{
+    text-align: center;
+    color:#efd2b2;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cancel-btn{
+    background-color: #efd628bd!important;
+    cursor: pointer;
+}
+.cancel-btn:hover{
+    background-color: #f5d707ed!important;
+}
+.radio-inline {
+    margin-left: 10px;
+}
+.button {
+    text-align: center;
+}
+.validate{
+    color: #f31919;
+}
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -28px;
+    margin-right: 7px;
+    position: relative;
+    z-index: 2;
+  }
+  .inner-wrapper {
+    padding-top: 15px;
+    padding-right: 200px;
+    padding-bottom: 130px;
+    padding-left: 200px;
+    width: 100%;
+  }

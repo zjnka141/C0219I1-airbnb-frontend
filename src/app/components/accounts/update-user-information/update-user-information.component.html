@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=brick-sign">
+<style>
+    .w3-lobster {
+        font-family: "Lobster", Sans-serif;
+    }
+</style>
+<!-- Title group  -->
+
+
+<!-- Account form -->
+<div class="inner-wrapper">
+    <form [formGroup]="editAccountForm" (ngSubmit)="updateAccount()" novalidate>
+        <div class="w3-container w3-lobster font-effect-brick-sign">
+            <p class="w3-xxlarge">Edit Account</p>
+        </div>
+        <mat-card style="padding-top: 15px">
+            <div class="controlers-wrapper">
+                <!-- Account name -->
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Account name" formControlName="fullName"><mat-icon matSuffix>person</mat-icon>
+                    <mat-error *ngIf="handleError('fullName', 'required')">
+                        You must provide a<strong>account name</strong>
+                    </mat-error>
+                    <mat-error *ngIf="handleError('fullName', 'pattern')">
+                        Your name should not contain special characters
+                    </mat-error>
+                </mat-form-field>
+
+
+                <!--Account's age -->
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Age" formControlName="age"><mat-icon matSuffix>cake</mat-icon>
+                    <mat-error *ngIf="handleError('age', 'required')">
+                        Age is required and must from 18 to 70 years old
+                    </mat-error>
+                </mat-form-field>
+
+
+
+                <!-- Phone Number -->
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Phone Number" formControlName="phone"><mat-icon matSuffix>settings_cell</mat-icon>
+                    <mat-error *ngIf="handleError('phone', 'required')">
+                        You must provide a <strong>Phone Number</strong>
+                    </mat-error>
+                    <mat-error *ngIf="handleError('phone', 'pattern')">
+                        Phone must start by 0 and have 10 number
+                    </mat-error>
+
+                </mat-form-field>
+
+            </div>
+        </mat-card>
+
+        <mat-card>
+            <div class="controlers-wrapper">
+                <!--Account's Address-->
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Address" formControlName="address"><mat-icon matSuffix>room</mat-icon>
+                    <mat-error *ngIf="handleError('address', 'required')">
+                        You must provide a <strong>Address</strong>
+                    </mat-error>
+
+                </mat-form-field>
+
+                <!-- Account's gender -->
+                <div class="misc-bottom-padding">
+                    <mat-label>Gender: </mat-label>
+                    <mat-radio-group aria-label="Select an option" formControlName="gender">
+                        <mat-radio-button value="Male">Male</mat-radio-button>
+                        <mat-radio-button value="Female">Female</mat-radio-button>
+                        <mat-radio-button value="Other">Other</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+
+                <!--Account's email-->
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" formControlName="email"><mat-icon matSuffix>sms</mat-icon>
+                    <mat-error *ngIf="handleError('email', 'required')">
+                        Email is required </mat-error>
+                    <mat-error *ngIf="handleError('email', 'email')">
+                        Email must be a valid email address
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </mat-card>
+
+        <!-- Submit & Reset -->
+        <mat-card>
+            <div class="full-wrapper button-wrapper">
+                <div class="button-wrapper">
+                    <button mat-flat-button color="warn">Update</button>
+                    <button mat-flat-button color="war" type="button" (click)="goBack()">Go Back</button>
+                </div>
+            </div>
+        </mat-card>
+    </form>
+</div>
