@@ -5,6 +5,7 @@ import { UploadImageComponent } from '../upload-image/upload-image.component';
 import { House } from 'src/app/models/house';
 import { HouseService } from 'src/app/services/house.service';
 import { Router } from '@angular/router';
+import { GetImageUrlService } from 'src/app/shared/get-image-url.service';
 
 
 @Component({
@@ -89,9 +90,11 @@ export class PostnewsComponent implements OnInit {
   secondFormGroup: FormGroup;
   ThirdFormGroup: FormGroup;
   FinalFormGroup: FormGroup;
+  imgUrl: Array<String> = [];
 
   constructor(private fb: FormBuilder, public dialog: MatDialog,
-    private houseService: HouseService, public snackbar: MatSnackBar, private router: Router) { }
+    private houseService: HouseService, public snackbar: MatSnackBar,
+    private router: Router, private getImageUrlService: GetImageUrlService) { }
 
   ngOnInit() {
     this.createFirstForm();
@@ -163,20 +166,27 @@ export class PostnewsComponent implements OnInit {
     console.log(this.firstFormGroup);
   }
 
-  onsubmitSecondForm() {
+  onSubmitSecondForm() {
     console.log(this.secondFormGroup);
+    this.getImageUrlService.updateUrl([]);
   }
 
   onsubmitThirdForm() {
     console.log(this.ThirdFormGroup);
 
     const UPLOAD_IMAGE = this.dialog.open(UploadImageComponent, {
-      width: '100%',
-      height: '600px',
+      width: '1000px',
+      height: '700px',
       data: {}
     });
+
     UPLOAD_IMAGE.afterClosed().subscribe(result => {
       console.log(`fix fix aaaaa ${result}`);
+    });
+
+    this.getImageUrlService.url.subscribe(url => {
+      this.imgUrl = url;
+      console.log("Image url in postnews component:::: ", this.imgUrl);
     })
   }
 
@@ -188,7 +198,6 @@ export class PostnewsComponent implements OnInit {
 
   onsubmitFinalForm() {
     console.log(this.FinalFormGroup);
-
     this.houseInfo = new House(
       this.form.name,
       this.form.typeHouse,
@@ -200,7 +209,7 @@ export class PostnewsComponent implements OnInit {
       this.form.priceByNight,
       this.form.priceByMonth,
       this.form.status,
-      this.form.image,
+      this.imgUrl.join("||---||"),
       this.form.area
     );
 

@@ -1,7 +1,7 @@
 <div class="wrapper">
     <!-- MatStepper -->
     <mat-card>
-        <mat-horizontal-stepper [linear]=isLinear #stepper>
+        <mat-horizontal-stepper [linear]="true" #stepper>
             <!-- MatStepper 1 -->
             <mat-step [stepControl]="firstFormGroup">
                 <form [formGroup]="firstFormGroup" novalidate>
@@ -29,7 +29,7 @@
 
             <!-- MatStepper 2 -->
             <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
-                <form [formGroup]="secondFormGroup" novalidate>
+                <form [formGroup]="secondFormGroup" novalidate (ngSubmit)="onSubmitSecondForm()">
                     <ng-template matStepLabel>Fill yours data</ng-template>
 
                     <!-- Name Of House -->

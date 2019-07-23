@@ -1,0 +1,53 @@
+<!-- Sidenav and toolbar -->
+<mat-drawer-container autosize>
+    <div class="sidenav-content">
+        <mat-toolbar color="primary">
+            <div class="container clearfix">
+                <button mat-icon-button routerLink="/">
+                    <img style="height: 50px"
+                        src="https://static.tacdn.com/img2/langs/vi/branding/rebrand/TA_logo_primary_v2.svg">
+                </button>
+                <div class="example-header">
+                    <button mat-icon-button matTooltip="Post" matTooltipClass="example-tooltip">
+                        <mat-icon class="example-icon">add_circle_outline</mat-icon>
+                        <span class="example-code">Post</span>
+                    </button>
+                    <button mat-icon-button matTooltip="Inbox" matTooltipClass="example-tooltip">
+                        <mat-icon class="example-icon">chat_bubble_outline</mat-icon>
+                        <span class="example-code">Inbox</span>
+                    </button>
+                    <button mat-icon-button matTooltip="Trips" matTooltipClass="example-tooltip">
+                        <mat-icon class="example-icon">table_chart</mat-icon>
+                        <span class="example-code">Trips</span>
+                    </button>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="User"
+                        matTooltipClass="example-tooltip">
+                        <mat-icon class="example-icon">perm_identity</mat-icon>
+                        <span class="example-code">Profile</span>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <mat-icon>note_add</mat-icon>
+                            <span>Post News</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>notifications</mat-icon>
+                            <span>Notification</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>email</mat-icon>
+                            <span>Check mail</span>
+                        </button>
+                    </mat-menu>
+                </div>
+                <button mat-button class="example-login" routerLink="/login">
+                    <span>Đăng Nhập</span>
+                </button>
+                <button mat-button class="example-search">
+                    <mat-icon>search</mat-icon>
+                    <span>Search....</span>
+                </button>
+            </div>
+        </mat-toolbar>
+    </div>
+</mat-drawer-container>

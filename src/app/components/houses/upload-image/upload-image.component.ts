@@ -6,6 +6,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import 'hammerjs';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
+import { GetImageUrlService } from 'src/app/shared/get-image-url.service';
 
 @Component({
   selector: 'app-upload-image',
@@ -28,7 +29,8 @@ export class UploadImageComponent implements OnInit {
   loginStatus: Boolean = false;
   constructor(
     public afs: AngularFirestore, public storage: AngularFireStorage,
-    private loginStatusService: LoginStatusService
+    private loginStatusService: LoginStatusService,
+    private getImageUrlService: GetImageUrlService
   ) { }
   ngOnChanges() {
 
@@ -38,6 +40,7 @@ export class UploadImageComponent implements OnInit {
       console.log(status);
       this.loginStatus = status;
     });
+    // this.getImageUrlService.url.subscribe()
     console.log(this.loginStatus);
     this.files = this.afs.collection('files').valueChanges();
     this.galleryOptions = [
@@ -131,7 +134,7 @@ export class UploadImageComponent implements OnInit {
       })
     }
     console.log(this.imageUrls);
-    console.log(this.galleryImages)
+    this.getImageUrlService.updateUrl(this.imageUrls);
   }
 
 }
