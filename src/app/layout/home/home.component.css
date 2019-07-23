@@ -1,0 +1,46 @@
+.homepage_wrapper{
+    background: url(https://media-cdn.tripadvisor.com/media/photo-b/1024x250/0f/3b/af/3d/aerial-view-2016.jpg);
+    font-size: medium;
+    font-family: Arial,Tahoma,Bitstream Vera Sans,sans-serif;
+    height: 300px;
+    background-size:cover;
+ }
+ 
+ .homepage_search{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 150px;
+ }
+ 
+ .homepage_search1{ 
+    position: relative;
+     display: inline-block;
+     padding: 0 20px 0 24px;
+     max-width: 250px;
+     background-color: #fff;
+     border-radius: 32px;
+     font-size: 24px;
+     line-height: 28px;
+     font-weight: 700;
+     color: #000;
+     cursor: pointer;
+     box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+ }
+ 
+ .homepage_search2{
+    display: inline-block;
+     width: 100%;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     line-height: 50px;
+     vertical-align: middle;
+     text-align: center;
+ }

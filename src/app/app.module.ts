@@ -21,6 +21,8 @@ import { UpdatePasswordComponent } from './components/accounts/update-password/u
 import { ListHouseComponent } from './components/houses/list-house/list-house.component';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HomeComponent } from './layout/home/home.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -43,7 +45,9 @@ export function getAuthServiceConfigs() {
     PostnewsComponent,
     UpdatePasswordComponent,
     ListHouseComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent
   ],
 
   entryComponents: [
