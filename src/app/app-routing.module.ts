@@ -5,13 +5,15 @@ import { UploadImageComponent } from './components/houses/upload-image/upload-im
 import { RegisterComponent } from './components/accounts/register/register.component';
 import { PostnewsComponent } from './components/houses/postnews/postnews.component';
 import { UpdatePasswordComponent } from './components/accounts/update-password/update-password.component';
+import { ListHouseComponent } from './components/houses/list-house/list-house.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "upload-image", component: UploadImageComponent },
   { path: "register", component: RegisterComponent },
   { path: "postnews", component: PostnewsComponent },
-  { path: "update-password", component: UpdatePasswordComponent}
+  { path: "update-password", component: UpdatePasswordComponent },
+  { path: "viewList", component: ListHouseComponent }
 ];
 
 @NgModule({
