@@ -10,12 +10,11 @@ import { House } from 'src/app/models/house';
 })
 export class ListHouseComponent implements OnInit, AfterViewInit {
 
-  public displayedColumns = ['name', 'status', 'address', 'update'];
+  public displayedColumns = ['name', 'status', 'address'];
   public dataSource = new MatTableDataSource<House>();
   house: House;
-
-
-
+  listStatus =['Đang thuê', 'Chưa thuê'];
+  
   constructor(private houseService: HouseService) { }
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -27,12 +26,10 @@ export class ListHouseComponent implements OnInit, AfterViewInit {
       this.dataSource.data = data as House[];
     })
   }
-  updateStatusOfHouse(id: number) {
-    if (confirm("Bạn có muốn cập nhật trạng thái của nhà này hay không?")) {
-      this.houseService.updateStatus(id, this.house).subscribe(data => {
+  updateStatusOfHouse(event, id: number) {
+      this.houseService.updateStatus(id,event.value).subscribe(data => {
         this.reloadData();
       })
-    }
   }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
