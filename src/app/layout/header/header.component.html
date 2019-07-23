@@ -20,25 +20,9 @@
                         <mat-icon class="example-icon">table_chart</mat-icon>
                         <span class="example-code">Trips</span>
                     </button>
-                    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="User"
-                        matTooltipClass="example-tooltip">
-                        <mat-icon class="example-icon">perm_identity</mat-icon>
-                        <span class="example-code">Profile</span>
-                    </button>
-                    <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
-                            <mat-icon>note_add</mat-icon>
-                            <span>Post News</span>
-                        </button>
-                        <button mat-menu-item>
-                            <mat-icon>notifications</mat-icon>
-                            <span>Notification</span>
-                        </button>
-                        <button mat-menu-item>
-                            <mat-icon>email</mat-icon>
-                            <span>Check mail</span>
-                        </button>
-                    </mat-menu>
+                    <a [routerLink]="['/home', currentUser.fullName]" routerLinkActive="active">
+                        {{ currentUser.fullName }}
+                    </a>
                 </div>
                 <button mat-button class="example-login" routerLink="/login">
                     <span>Đăng Nhập</span>

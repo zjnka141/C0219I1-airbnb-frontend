@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+import { AccountService } from 'src/app/services/account.service';
+import { Account } from 'src/app/models/account';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,15 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public location: Location) { }
+  constructor(private userService: AccountService) { }
+
+  currentUser: Account;
 
   ngOnInit() {
-  }
-
-  pageRefresh() {
-    location.reload();
+    this.userService.currentUser
+      .subscribe(userData => {
+        this.currentUser = userData;
+      })
   }
 
 }
