@@ -10,7 +10,7 @@ export class Account {
     password: String;
 
     constructor(fullName: String, username: String, age: String, gender: String, phone: String, address: String, email: String, password: String) {
-        this.fullName = fullName,
+            this.fullName = fullName,
             this.username = username,
             this.age = age,
             this.gender = gender,
