@@ -1,1 +1,255 @@
-<h1>{{house.name}}</h1>
+<div class="container all">
+  <div class="row header">
+    <div class="col-md">
+      <div class="title">
+        <h5 class="text-light">
+          <mat-icon>home</mat-icon>
+          <span style="margin-top: 10px">AirBnB.vn</span>
+          | Tiết kiệm tiền. Chúng tôi tìm kiếm hơn 200 trang web để có giá khách
+          sạn thấp nhất
+        </h5>
+      </div>
+      <nav class="nav">
+        <a class="nav-link active" href="#"><i class="fas fa-map-marker-alt text-success"><small><a
+                href="https://goo.gl/maps/EgonPmeifAFA7ykk8">05/tân lập 1/thạch thang, hải châu, đà
+                nẵng</a></small></i></a>
+        <a class="nav-link" href="#">
+          <i class="fas fa-globe text-success"><small><a
+                href="https://www.tripadvisor.com.vn/Restaurant_Review-g293928-d15296376-Reviews-Dinner_at_Cim_s-Nha_Trang_Khanh_Hoa_Province.html">Fanpage/house/vietnam</a></small></i>
+        </a>
+        <a class="nav-link" href="#">
+          <i class="fas fa-phone-alt text-success"><a href="#"> <small>+8413432784</small></a></i>
+        </a>
+      </nav>
+    </div>
+  </div>
+  <div class="row title1">
+    <div class="col-md-6 image1">
+      <img class="img-thumbnail" alt="Responsive image" src="{{ imageUrls[3] }}" />
+    </div>
+    <div class="col-md-6 ">
+      <div class="row">
+        <div class="col-md-6 img-wrapper">
+          <img class="img-fluid" alt="Responsive image"
+            src="https://cdn.tuoitre.vn/thumb_w/586/2019/3/30/photo-1-15539554037881852505636.jpg" />
+        </div>
+        <div class="col-md-6 img-wrapper">
+          <img class="img-fluid" alt="Responsive image"
+            src="http://www.muabannhadat.vn/tin-tuc/wp-content/uploads/2017/09/co-nen-dau-tu-noi-that-can-ho-cho-thue.jpg" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 img-wrapper">
+          <img class="img-fluid" alt="Responsive image"
+            src="https://photo-3-baomoi.zadn.vn/w1000_r1/2018_07_25_304_27023996/f01aa5ed5eabb7f5eeba.jpg" />
+        </div>
+        <div class="col-md-6 img-wrapper">
+          <img class="img-fluid" alt="Responsive image"
+            src="http://goiydautu.com/wp-content/uploads/2018/07/dautu-1-800x445.jpg" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row title2">
+    <div class="col-md-4">
+      <ul class="list-group feedback">
+        <li class="list-group-item font-weight-bold">Xếp Hạng Đánh Giá</li>
+        <li class="list-group-item start">
+          5.0
+          <mat-icon>star_rate</mat-icon>
+          <mat-icon>star_rate</mat-icon>
+          <mat-icon>star_rate</mat-icon>
+          <mat-icon>star_rate</mat-icon>
+          <mat-icon>star_rate</mat-icon>
+          <small>142 Đánh Giá</small>
+        </li>
+        <li class="list-group-item">Số 2 Trong 573 Nhà Trọ Tại Nha Trang</li>
+        <li class="list-group-item">...............................</li>
+        <li class="list-group-item font-weight-bold">
+          <small>Xếp Hạng</small>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <i class="fas fa-utensils"><small> Đồ ăn</small></i>
+
+          <span class="text text-success font-weight-bold">
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+          </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <i class="fas fa-concierge-bell"><small>Dịch vụ</small></i>
+          <span class="text text-success text-pill">
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+          </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <i class="fas fa-wallet"><small>Giá trị</small></i>
+          <span class="text text-success text-pill" style="font-size: 10px;">
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+            <mat-icon>radio_button_checked</mat-icon>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <div>
+        <li class="list-group-item font-weight-bold">Chi Tiết</li>
+        <li class="list-group-item ">
+          <small class="font-weight-bold text-primary">Khoảng Giá</small>
+        </li>
+        <li class="list-group-item">
+          {{ house.priceByNight | currency: "VND":"" }} ₫
+        </li>
+        <li class="list-group-item font-weight-bold">
+          <small class="font-weight-bold text-primary">Mô tả</small>
+        </li>
+        <li class="list-group-item">
+          <small>{{ house.describe }}</small>
+        </li>
+        <li class="list-group-item font-weight-bold">
+          <small class="font-weight-bold text-primary">Số phòng ngủ </small>
+        </li>
+        <li class="list-group-item">{{ house.numberOfBedrooms }}</li>
+        <li class="list-group-item font-weight-bold">
+          <small class="font-weight-bold text-primary">Số phòng tắm </small>
+        </li>
+        <li class="list-group-item">
+          <small>{{ house.numberOfBathrooms }}</small>
+        </li>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div>
+        <li class="list-group-item font-weight-bold">
+          Địa điểm và thông tin liên hệ
+        </li>
+        <li class="list-group-item">
+          <div id="map" style="width:100px;height:100px;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.691672937738!2d108.21763426742474!3d16.081481886138736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142183ea958c493%3A0x6fc972491da0d23a!2zNSBUw6JuIEzhuq1wIDEsIEjhuqNpIENow6J1LCDEkMOgIE7hurVuZyA1NTAwMDAsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1563972885869!5m2!1svi!2s"
+              height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+        </li>
+
+        <li></li>
+
+        <li class="list-group-item">
+          <i class="fas fa-map-marker-alt text-success">
+            <small>
+              <a href="https://goo.gl/maps/EgonPmeifAFA7ykk8">{{house.address}}</a>
+
+            </small>
+          </i>
+        </li>
+        <li class="list-group-item">
+          <i class="fas fa-globe text-success"></i>
+          <small><a
+              href="https://www.tripadvisor.com.vn/Restaurant_Review-g293928-d15296376-Reviews-Dinner_at_Cim_s-Nha_Trang_Khanh_Hoa_Province.html">Fanpage/house/vietnam</a></small>
+        </li>
+        <li class="list-group-item">
+          <i class="fas fa-phone-alt text-success"></i>
+          <small>+8413432784</small>
+        </li>
+      </div>
+    </div>
+  </div>
+  <div class="row title3">
+    <div class="col-md">
+      <div class="text-center">
+        <small class="question" style="line-height: 39px">Ngôi nhà này có khiến bạn hài lòng <input type="checkbox" />
+          có<input type="checkbox" />không
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="row title4">
+    <div class="col-md-12 related" style="background: white;">
+      <h3 class="text-bold">Bạn có thể cũng thích</h3>
+    </div>
+    <div class="col-md-4 wrap-col4" style="background: white">
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item">
+          <img
+            src="https://hanoirealestate.com.vn/images/products/cho-thue-biet-thu-day-c1-ciputra-dt-198m-5pn-gan-truong-academy_2018121811253.jpg"
+            class="img-related" />
+        </li>
+        <li class="list-group-item text-bold">
+          <p class="text text-success font-weight-bold">Khách sạn</p>
+          <p>Passion</p>
+          <p>
+            <span class="text text-success font-weight-bold">
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+            </span>
+          </p>
+          <p><small>6 đánh giá</small></p>
+          <p>
+            <button type="button" class="btn btn-warning">1.097.231 Đ</button>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 wrap-col4" style="background: white">
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item">
+          <img src="https://blog.rever.vn/hubfs/xuananh/mua-nha4-min.jpg" class="img-related" />
+        </li>
+        <li class="list-group-item text-bold">
+          <p class="text text-success font-weight-bold">Khách sạn</p>
+          <p>{{ house.name }}</p>
+          <p>
+            <span class="text text-success font-weight-bold">
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+            </span>
+          </p>
+          <p><small>6 đánh giá</small></p>
+          <p>
+            <button type="button" class="btn btn-warning">3.000.250 Đ</button>
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 wrap-col4" style="background: white">
+      <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item">
+          <img src="https://openstock.vn/wp-content/uploads/2018/10/cho-thue-nha-qua-airbnb-vnf.jpg"
+            class="img-related" />
+        </li>
+        <li class="list-group-item text-bold">
+          <p class="text text-success font-weight-bold">Khách sạn</p>
+          <p>Đâu Cũng Được</p>
+          <p>
+            <span class="text text-success font-weight-bold">
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+              <mat-icon>radio_button_checked</mat-icon>
+            </span>
+          </p>
+          <p><small>6969 đánh giá</small></p>
+          <p>
+            <button type="button" class="btn btn-warning">1.097.231 Đ</button>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

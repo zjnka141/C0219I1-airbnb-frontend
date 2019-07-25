@@ -22,6 +22,10 @@ import { ListHouseComponent } from './components/houses/list-house/list-house.co
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { HeaderComponent } from './layout/header/header.component';
 import { ViewHouseComponent } from './components/houses/view-house/view-house.component';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,MatDividerModule,MatGridListModule } 
+from '@angular/material';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -64,7 +68,15 @@ export function getAuthServiceConfigs() {
     MaterialModule,
     NgxGalleryModule,
     FormsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatDividerModule,
+    MatGridListModule,
+    NgbModule
   ],
   providers: [
     {
