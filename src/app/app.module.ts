@@ -27,9 +27,11 @@ from '@angular/material';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './layout/home/home.component';
+import { BookingHouseComponent } from './components/houses/booking-house/booking-house.component';
 import { ProfileComponent } from './components/accounts/profile/profile.component';
 import { ListHouseComponent } from './components/houses/list-house/list-house.component';
 import { Ng5SliderModule } from 'ng5-slider';
+
 // Configs 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -55,6 +57,7 @@ export function getAuthServiceConfigs() {
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    BookingHouseComponent
     ProfileComponent,
     ListHouseComponent
   ],
