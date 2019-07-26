@@ -28,4 +28,7 @@ export class HouseService {
   createNewHouse(houseInfo: House): Observable<any> {
     return this.http.post<any>(this.baseUrl, houseInfo);
   }
+  getHouseById(id: number) : Observable<any>{
+    return this.http.get(`${this.baseUrl}/${id}`)
+  }
 }
