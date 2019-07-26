@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: "manage-house", component: ManageHouseComponent },
   { path: "home", component: HomeComponent },
   { path: "houses", component: ListHouseComponent},
-   { path: "booking-house", component: BookingHouseComponent },
+  { path: "booking-house", component: BookingHouseComponent },
   { path: "", redirectTo: "home", pathMatch: "full" },
 
 ];

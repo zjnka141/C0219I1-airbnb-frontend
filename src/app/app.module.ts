@@ -79,7 +79,8 @@ export function getAuthServiceConfigs() {
     NgxGalleryModule,
     FormsModule,
     SocialLoginModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    NgbModule
   ],
   providers: [
     {

@@ -52,8 +52,8 @@
             </div>
             <div class="row house-item" *ngFor="let house of houses">
                 <div class="col-md-9">
-                    <h4 style="color:#00ADEF; margin-bottom: 0;">
-                        <a [routerLink]="[ '/view-house', house.id ]">{{ house.name}}</a>
+                    <h4 style="margin-bottom: 0;">
+                        <a style="text-decoration: none;color:#00ADEF;" [routerLink]="[ '/view-house', house.id ]">{{ house.name}}</a>
                         <span style="box-sizing: border-box; float: right;">
                             <span class="rate-star"><i class="fas fa-star"></i></span>
                             <span class="rate-star"><i class="fas fa-star"></i></span>
@@ -63,7 +63,8 @@
                         </span>
                     </h4>
                     <small><i class="fas fa-map-marker-alt"></i> {{ house.address }}</small>
-                    <div class="house-wrapper">
+                    <br>
+                    <div [routerLink]="[ '/view-house', house.id ]" class="house-wrapper">
                         <div class="row">
                             <div class="col-sm-6 noPadRight">
                                 <div class="image-house">
@@ -98,14 +99,14 @@
                     <div class="price pt-2 pr-2" style="text-align: right;">
                         <div class="badge   px-2 py-1" style="font-size: 16px;"
                             [ngClass]="house.status=='Leased'? 'badge-danger' : 'badge-success'">
-                            {{ house.status=='Leased'?'Hết phòng':'Còn phòng'}}
+                            {{ house.status=='Leased'?'Đã thuê':'Chưa thuê'}}
                         </div>
                         <br>
                         <p style="text-decoration:line-through; margin-top:10px; margin-bottom: 0;">
                             {{ house.priceByNight*1.2 | currency:'VND':'':'.0'}} đ</p>
                         <p class="text-success" style="font-size: 20px; margin-bottom: 5px;">
                             {{ house.priceByNight | currency:'VND':'':'.0'}} đ</p>
-                        <button mat-raised-button color="warn">Xem phòng ngay</button>
+                        <button mat-raised-button color="warn">Xem nhà ngay</button>
                     </div>
                 </div>
             </div>

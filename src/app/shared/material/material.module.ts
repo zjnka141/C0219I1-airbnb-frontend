@@ -29,7 +29,11 @@ const MaterialModules = [
   MatDialogModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatIconModule
 ]
 @NgModule({
   declarations: [],
