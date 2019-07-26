@@ -15,6 +15,7 @@ export class ViewHouseComponent implements OnInit {
 
   ngOnInit() {
     this.getHouseDetails(this.route.snapshot.params["id"]);
+    
   }
   getHouseDetails(id) {
     this.hs.getHouseById(id).subscribe(data => {
@@ -22,4 +23,5 @@ export class ViewHouseComponent implements OnInit {
       this.imageUrls = this.house.image.split("||---||");
     });
   }
+
 }
