@@ -18,15 +18,18 @@ import { RegisterComponent } from './components/accounts/register/register.compo
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "angular-6-social-login";
 import { PostnewsComponent } from './components/houses/postnews/postnews.component';
 import { UpdatePasswordComponent } from './components/accounts/update-password/update-password.component';
-import { ListHouseComponent } from './components/houses/list-house/list-house.component';
+import { ManageHouseComponent } from './components/houses/manage-house/manage-house.component';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { HeaderComponent } from './layout/header/header.component';
 import { ViewHouseComponent } from './components/houses/view-house/view-house.component';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,MatDividerModule,MatGridListModule } 
 from '@angular/material';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
+import { FooterComponent } from './layout/footer/footer.component';
+import { HomeComponent } from './layout/home/home.component';
+import { ProfileComponent } from './components/accounts/profile/profile.component';
+import { ListHouseComponent } from './components/houses/list-house/list-house.component';
+import { Ng5SliderModule } from 'ng5-slider';
 // Configs 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -47,9 +50,13 @@ export function getAuthServiceConfigs() {
     RegisterComponent,
     PostnewsComponent,
     UpdatePasswordComponent,
-    ListHouseComponent,
+    ViewHouseComponent,
+    ManageHouseComponent,
     HeaderComponent,
-    ViewHouseComponent
+    FooterComponent,
+    HomeComponent,
+    ProfileComponent,
+    ListHouseComponent
   ],
 
   entryComponents: [
@@ -69,14 +76,7 @@ export function getAuthServiceConfigs() {
     NgxGalleryModule,
     FormsModule,
     SocialLoginModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatDividerModule,
-    MatGridListModule,
-    NgbModule
+    Ng5SliderModule
   ],
   providers: [
     {

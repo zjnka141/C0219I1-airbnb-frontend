@@ -1,32 +1,4 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-header></app-header>
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button>
-      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-    </button>
-    <h1>AirBnB App</h1>
-    <span class="menu-spacer"></span>
-    <div>
-      <a mat-button [routerLink]="['/login']" routerLinkActive="active"
-        >Login</a
-      >
-      <a mat-button [routerLink]="['/upload-image']" routerLinkActive="active"
-        >Upload Image</a
-      >
-      <a
-        mat-button
-        [routerLink]="['/update-password']"
-        routerLinkActive="active"
-        >Update password</a
-      >
-      <a mat-button [routerLink]="['/postnews']" routerLinkActive="active"
-        >Add new house</a
-      >
-      <a mat-button [routerLink]="['/view-house', 2]" routerLinkActive="active"
-        >View List</a
-      >
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
 <router-outlet></router-outlet>
+<app-footer></app-footer>

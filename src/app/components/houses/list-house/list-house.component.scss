@@ -1,11 +1,86 @@
-table {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    min-width: 500px;
+.house-item{
+    border: 0.5px solid rgba(128, 128, 128, 0.3);
+    box-shadow: 1px 1px 2px rgba(128, 128, 128, 0.671);
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-th.mat-header-cell {
-    text-align: left;
-    max-width: 300px;
-} 
+.house-wrapper{
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.image-house{
+    overflow: hidden;
+    padding: 0;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+}
+
+.noPadRight{
+    padding-right: 0; 
+}
+
+.image-house img{
+    transition: 1000ms;
+}
+
+.house-wrapper:hover img{
+    transform: scale(1.1);
+}
+
+.house-wrapper .content{
+    display: inline-block;
+}
+
+.house-item .rate{
+    border-radius: 8px 8px 0 0;
+    background: #F5F5F5;
+    min-height: 40%;
+}
+
+.house-item .rate span{
+    display: inline-block;
+    padding: 5px 10px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: #00adef;
+    border-radius: 5px 0 0 5px;
+    float: right;
+}
+
+.house-item .rate span:first-child{
+    background: #52c6f0;
+    border-radius:  0 5px 5px 0;
+}
+
+.house-item .price{
+    border-radius: 0 0 8px 8px;
+    min-height: 60% ;
+    background: #E9F3F7;
+}
+
+.rate-star{
+    font-size:15px;
+    color:#FFD21F
+}
+
+li.page-item{
+    cursor: pointer;
+}
+
+li.disabled{
+    pointer-events:none; //This makes it not clickable
+    opacity:0.6;         //This grays it out to look disabled
+}
+
+.left-filter{
+    border: 1px 0 1px 1px solid rgba(128, 128, 128, 0.466);
+    box-shadow: 1px 1px 2px rgba(128, 128, 128, 0.671);
+    border-radius: 5px;
+}
