@@ -9,12 +9,14 @@ import { ManageHouseComponent } from './components/houses/manage-house/manage-ho
 import { HomeComponent } from './layout/home/home.component';
 import { ListHouseComponent } from './components/houses/list-house/list-house.component';
 
+
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "upload-image", component: UploadImageComponent },
   { path: "register", component: RegisterComponent },
   { path: "postnews", component: PostnewsComponent },
   { path: "update-password", component: UpdatePasswordComponent },
+  { path: "view-house/:id", component: ViewHouseComponent },
   { path: "manage-house", component: ManageHouseComponent },
   { path: "home", component: HomeComponent },
   { path: "houses", component: ListHouseComponent},
@@ -25,4 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

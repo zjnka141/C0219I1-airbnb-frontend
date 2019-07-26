@@ -21,6 +21,10 @@ import { UpdatePasswordComponent } from './components/accounts/update-password/u
 import { ManageHouseComponent } from './components/houses/manage-house/manage-house.component';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { HeaderComponent } from './layout/header/header.component';
+import { ViewHouseComponent } from './components/houses/view-house/view-house.component';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,MatDividerModule,MatGridListModule } 
+from '@angular/material';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './layout/home/home.component';
 import { ProfileComponent } from './components/accounts/profile/profile.component';
@@ -46,6 +50,7 @@ export function getAuthServiceConfigs() {
     RegisterComponent,
     PostnewsComponent,
     UpdatePasswordComponent,
+    ViewHouseComponent,
     ManageHouseComponent,
     HeaderComponent,
     FooterComponent,
