@@ -49,7 +49,7 @@ export class BookingHouseComponent implements OnInit {
     ],
     'amount': [
       { type: 'required', message: 'Amount is required' },
-      { type: 'pattern', message: 'Phone Number is only number' }
+      { type: 'pattern', message: 'Amount is only one number' }
     ],
     'descriptionBookingHouse': [
       { type: 'required', message: 'DesciptionBookingHouse is required' }
@@ -94,7 +94,7 @@ export class BookingHouseComponent implements OnInit {
       ])),
       amount: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern(/^0\d{9,10}$/),
+        Validators.pattern(/^\d{1}$/),
       ])),
       desciptionBookingHouse: new FormControl('', Validators.compose([
         Validators.required,
