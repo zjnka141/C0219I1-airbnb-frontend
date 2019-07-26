@@ -15,7 +15,9 @@ const routes: Routes = [
   { path: "update-password", component: UpdatePasswordComponent},
   {path: 'list-account', component:ListAccountComponent},
   { path: 'update-user-information/:id', component: UpdateUserInformationComponent },
-  { path: 'list-customer', component:ListCustomerComponent }
+  { path: 'list-customer', component:ListCustomerComponent },
+
+  //Test search-house
   
 ];
 

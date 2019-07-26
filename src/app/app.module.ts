@@ -78,6 +78,10 @@ import { OrderModule } from 'ngx-order-pipe';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 
 
+ 
+
+
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 
 // Configs 
@@ -102,7 +106,8 @@ export function getAuthServiceConfigs() {
     ListHouseComponent,
     UpdateUserInformationComponent,
     ListAccountComponent,
-    ListCustomerComponent
+    ListCustomerComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -179,6 +184,11 @@ export function getAuthServiceConfigs() {
     ,MyOrderByPipe,
     ,BsModalRef
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [],
+
 })
 export class AppModule { }
+
+
+platformBrowserDynamic().bootstrapModule(AppModule);
