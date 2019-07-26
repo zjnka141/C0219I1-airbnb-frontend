@@ -1,0 +1,23 @@
+table {
+    width: 60%;
+    overflow-x:auto;
+    overflow-y: hidden;
+    min-width: 500px;
+}
+
+th.mat-header-cell {
+  text-align: center;
+    max-width: 300px;
+} 
+.mat-column-name {
+    flex: 0 0 100px;
+    width: 20%;
+  }
+  .mat-column-status {
+    flex: 0 0 100px;
+    width: 20%;
+  }
+  .mat-column-address {
+    flex: 0 0 100px;
+    width: 20%;
+  }
