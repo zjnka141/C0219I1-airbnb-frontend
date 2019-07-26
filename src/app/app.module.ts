@@ -57,7 +57,7 @@ export function getAuthServiceConfigs() {
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    BookingHouseComponent
+    BookingHouseComponent,
     ProfileComponent,
     ListHouseComponent
   ],

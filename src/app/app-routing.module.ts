@@ -10,6 +10,7 @@ import { HomeComponent } from './layout/home/home.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { BookingHouseComponent } from './components/houses/booking-house/booking-house.component';
 import { ListHouseComponent } from './components/houses/list-house/list-house.component';
+import { ViewHouseComponent } from './components/houses/view-house/view-house.component';
 
 const routes: Routes = [
   {
