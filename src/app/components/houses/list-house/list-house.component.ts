@@ -8,7 +8,7 @@ import { Options,LabelType } from 'ng5-slider';
   styleUrls: ['./list-house.component.scss']
 })
 export class ListHouseComponent implements OnInit {
-  size=3;
+  size=10;
   housePage:any;
   houses:House[]=[];
   totalPages:number=1;
