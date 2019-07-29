@@ -1,10 +1,37 @@
-<footer class="example-footer">
-    <div>
-        <a routerLink="/">CodeGym</a>
-        <span class="attribution">
-            &copy; {{ today | date: 'yyyy' }}.
-            An interactive learning project from <a href="https://codegymdn.vn">CodeGymDaNang</a>.
-            Code licensed under MIT.
-        </span>
+<footer class="footer footer-black footer-big">
+    <div class="container">
+        <ul class="float-left">
+            <li>
+                <a href="#pablo">
+            Blog
+          </a>
+            </li>
+            <li>
+                <a href="#pablo">
+            Presentation
+          </a>
+            </li>
+            <li>
+                <a href="#pablo">
+            Discover
+          </a>
+            </li>
+            <li>
+                <a href="#pablo">
+            Payment
+          </a>
+            </li>
+            <li>
+                <a href="#pablo">
+            Contact Us
+          </a>
+            </li>
+        </ul>
+        <div class="copyright float-right">
+            Copyright &#xA9; {{ today | date: 'yyyy' }}.
+            <script>
+                document.write(new Date().getFullYear())
+            </script> Codegym Đà Nẵng.
+        </div>
     </div>
 </footer>

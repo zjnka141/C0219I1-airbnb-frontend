@@ -1,53 +1,111 @@
-<!-- Sidenav and toolbar -->
-<mat-drawer-container autosize>
-    <div class="sidenav-content">
-        <mat-toolbar color="primary">
-            <div class="container clearfix">
-                <button mat-icon-button routerLink="/">
-                    <img style="height: 50px"
-                        src="https://static.tacdn.com/img2/langs/vi/branding/rebrand/TA_logo_primary_v2.svg">
+<!-- show user logout -->
+<nav class="navbar navbar-inverse navbar-expand-lg bg-dark" role="navigation-demo" *appShowAuthed="false">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-translate">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="active nav-item">
+                    <a href="/" class="nav-link">Booking House Đà Nẵng</a>
+                </li>
+            </ul>
+            <form class="form-inline ml-auto">
+                <div class="form-group has-white">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
+                    <i class="material-icons">search</i>
                 </button>
-                <div class="example-header">
-                    <button mat-icon-button matTooltip="Post" matTooltipClass="example-tooltip">
-                        <mat-icon class="example-icon">add_circle_outline</mat-icon>
-                        <span class="example-code">Post</span>
+            </form>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/login" class="nav-link">
+                        Singin
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-social btn-fill btn-github">
+                        <i class="fab fa-github"></i> Connect Github
                     </button>
-                    <button mat-icon-button matTooltip="Inbox" matTooltipClass="example-tooltip">
-                        <mat-icon class="example-icon">chat_bubble_outline</mat-icon>
-                        <span class="example-code">Inbox</span>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-social btn-fill btn-facebook">
+                        <i class="fab fa-facebook"></i> Connect Github
                     </button>
-                    <button mat-icon-button matTooltip="Trips" matTooltipClass="example-tooltip">
-                        <mat-icon class="example-icon">table_chart</mat-icon>
-                        <span class="example-code">Trips</span>
-                    </button>
-                    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="User"
-                        matTooltipClass="example-tooltip">
-                        <mat-icon class="example-icon">perm_identity</mat-icon>
-                        <span class="example-code">Profile</span>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-->
+</nav>
+
+<!-- show user login -->
+<nav class="navbar navbar-inverse navbar-expand-lg bg-dark" role="navigation-demo" *appShowAuthed="true">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-translate">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="active nav-item">
+                    <a href="/" class="nav-link">Booking House Đà Nẵng</a>
+                </li>
+            </ul>
+            <form class="form-inline ml-auto">
+                <div class="form-group has-white">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
+                    <i class="material-icons">search</i>
+                </button>
+            </form>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        PostHouse
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        RentingHouse
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="btn btn-rose btn-raised btn-fab btn-round">
+                        <i class="material-icons">email</i>
+                    </a>
+                </li>
+                <li class="dropdown nav-item">
+                    <button class="profile-photo dropdown-toggle nav-link" [matMenuTriggerFor]="menu">
+                        <div class="profile-photo-small">
+                            <img src="../../../assets/images/face-image/christian.jpg" alt="Circle Image"
+                                class="rounded-circle img-fluid">
+                        </div>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
-                            <mat-icon>note_add</mat-icon>
-                            <span>Post News</span>
-                        </button>
-                        <button mat-menu-item>
-                            <mat-icon>notifications</mat-icon>
-                            <span>Notification</span>
-                        </button>
-                        <button mat-menu-item>
-                            <mat-icon>email</mat-icon>
-                            <span>Check mail</span>
-                        </button>
+                        <button mat-menu-item [routerLink]="['/Profile', info.username]">Profile</button>
+                        <button mat-menu-item>Setting</button>
                     </mat-menu>
-                </div>
-                <button mat-button class="example-login" routerLink="/login">
-                    <span>Đăng Nhập</span>
-                </button>
-                <button mat-button class="example-search">
-                    <mat-icon>search</mat-icon>
-                    <span>Search....</span>
-                </button>
-            </div>
-        </mat-toolbar>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-</mat-drawer-container>
+    <!-- /.container-->
+</nav>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/accounts/login/login.component';
 import { UploadImageComponent } from './components/houses/upload-image/upload-image.component';
@@ -7,6 +7,7 @@ import { PostnewsComponent } from './components/houses/postnews/postnews.compone
 import { UpdatePasswordComponent } from './components/accounts/update-password/update-password.component';
 import { ListHouseComponent } from './components/houses/list-house/list-house.component';
 import { HomeComponent } from './layout/home/home.component';
+import { ProfileComponent } from './components/accounts/profile/profile.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -16,6 +17,10 @@ const routes: Routes = [
   { path: "update-password", component: UpdatePasswordComponent },
   { path: "viewList", component: ListHouseComponent },
   { path: "home", component: HomeComponent },
+  {
+    path: "Profile/:info",
+    component: ProfileComponent
+  },
   { path: "", redirectTo: "home", pathMatch: "full" },
 ];
 

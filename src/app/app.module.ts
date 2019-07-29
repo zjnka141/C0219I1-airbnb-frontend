@@ -23,6 +23,8 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './layout/home/home.component';
+import { ProfileComponent } from './components/accounts/profile/profile.component';
+import { ShowAuthedDirective } from './shared/show-authed.directive';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -47,7 +49,9 @@ export function getAuthServiceConfigs() {
     ListHouseComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent,
+    ShowAuthedDirective,
   ],
 
   entryComponents: [
