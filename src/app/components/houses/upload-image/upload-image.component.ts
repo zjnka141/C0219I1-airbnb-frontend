@@ -7,6 +7,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
 import 'hammerjs';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
 import { GetImageUrlService } from 'src/app/shared/get-image-url.service';
+import { TokenStorageService } from 'src/app/auth/token-storage.service';
 
 @Component({
   selector: 'app-upload-image',
@@ -30,12 +31,17 @@ export class UploadImageComponent implements OnInit {
   constructor(
     public afs: AngularFirestore, public storage: AngularFireStorage,
     private loginStatusService: LoginStatusService,
-    private getImageUrlService: GetImageUrlService
+    private getImageUrlService: GetImageUrlService,
+    private token: TokenStorageService
   ) { }
   ngOnChanges() {
 
   }
   ngOnInit() {
+    const token = this.token.getToken();
+    if(token!=null){
+      this.loginStatusService.changeState(true);
+    }
     this.loginStatusService.status.subscribe(status => {
       console.log(status);
       this.loginStatus = status;

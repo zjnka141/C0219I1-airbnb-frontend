@@ -11,10 +11,14 @@ import { Account } from 'src/app/models/account';
 
 @Component({
   selector: 'app-login',
+  template:`
+  <app-update-password [childMessage]="parentMessage"></app-update-password>
+  `,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  parentMessage: string = 'message from parent';
   hide = true;
   username: String = '';
   password: String = '';

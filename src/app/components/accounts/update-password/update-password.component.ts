@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Validators, AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
 import { LoginStatusService } from 'src/app/shared/login-status.service';
+import { TokenStorageService } from 'src/app/auth/token-storage.service';
 
 @Component({
   selector: 'app-update-password',
+  template: `
+  Say {{ message }}
+`,
   templateUrl: './update-password.component.html',
   styleUrls: ['./update-password.component.scss']
 })
 export class UpdatePasswordComponent implements OnInit {
+  @Input() childMessage: string;
   registerForm: FormGroup;
   newPassword: String;
   currentPassword: String;
@@ -16,7 +21,8 @@ export class UpdatePasswordComponent implements OnInit {
   id: number = 9;
   loginStatus: Boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private accountService: AccountService, private loginStatusService: LoginStatusService) { }
+  constructor(private formBuilder: FormBuilder, private accountService: AccountService, 
+    private loginStatusService: LoginStatusService, private token: TokenStorageService) { }
 
   comparePassword(c: AbstractControl) {
     const v = c.value;
@@ -28,6 +34,10 @@ export class UpdatePasswordComponent implements OnInit {
 
   }
   ngOnInit() {
+    const token = this.token.getToken();
+    if(token!=null){
+      this.loginStatusService.changeState(true);
+    }
     this.loginStatusService.status.subscribe(status => {
       console.log(status);
       this.loginStatus = status;
@@ -50,6 +60,7 @@ export class UpdatePasswordComponent implements OnInit {
 
   onSubmit() {
     if (confirm("Bạn có muốn cập nhật password này hay không?")) {
+      console.log(this.childMessage +"abc");
       if (this.registerForm.valid) {
         this.currentPassword = this.registerForm.get("currentPassword").value;
         this.newPassword = this.registerForm.get("password").get("newPassword").value;

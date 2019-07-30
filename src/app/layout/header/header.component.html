@@ -99,8 +99,33 @@
                         </div>
                     </button>
                     <mat-menu #menu="matMenu">
+
                         <button mat-menu-item [routerLink]="['/Profile', info.username]">Profile</button>
                         <button mat-menu-item>Setting</button>
+
+                        <button mat-menu-item>
+                            <mat-icon>note_add</mat-icon>
+                            <span>Post News</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>notifications</mat-icon>
+                            <span>Notification</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>email</mat-icon>
+                            <span>Check mail</span>
+                        </button>
+                        <button mat-menu-item routerLink="/update-password">
+                            <span>Change Pass</span>
+                        </button>
+                        <button mat-menu-item routerLink="/booking-house">
+                            <span>Booking</span>
+                        </button>
+                        <button mat-menu-item routerLink="/viewList" >
+                            <mat-icon>view_comfy</mat-icon>
+                            <span>View houses</span>
+                        </button>
+
                     </mat-menu>
                 </li>
             </ul>
