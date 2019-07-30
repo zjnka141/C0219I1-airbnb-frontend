@@ -7,6 +7,7 @@ import { UpdatePasswordComponent } from './components/accounts/update-password/u
 import { UpdateUserInformationComponent } from './components/accounts/update-user-information/update-user-information.component';
 import { ListAccountComponent } from './components/accounts/list-account/list-account.component';
 import { ListCustomerComponent } from './components/customer/list-customer/list-customer.component'
+import { ListHouseComponent } from './components/houses/list-house/list-house.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'list-account', component:ListAccountComponent},
   { path: 'update-user-information/:id', component: UpdateUserInformationComponent },
   { path: 'list-customer', component:ListCustomerComponent },
+  { path:'list-house', component:ListHouseComponent}
 
   //Test search-house
   
