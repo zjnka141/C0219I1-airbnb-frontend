@@ -104,7 +104,8 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.loginStatusService.changeState(true);
         console.log(this.loginStatusService.status);
-        this.router.navigate(['../update-password'], { relativeTo: this.route });
+        // this.router.navigate(['../update-password'], { relativeTo: this.route });
+        this.router.navigate(['home']);
       },
       error => {
         console.log("Error ", error);

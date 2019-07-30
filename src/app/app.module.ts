@@ -19,6 +19,12 @@ import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "ang
 import { UpdatePasswordComponent } from './components/accounts/update-password/update-password.component';
 import { ListHouseComponent } from './components/houses/list-house/list-house.component';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HomeComponent } from './layout/home/home.component';
+import { ProfileComponent } from './components/accounts/profile/profile.component';
+import { ShowAuthedDirective } from './shared/show-authed.directive';
+=======
 // import { UpdateUserInformationComponent } from './components/accounts/update-user-information/update-user-information.component';
 // import { ListAccountComponent } from './components/accounts/list-account/list-account.component';
 
@@ -83,7 +89,6 @@ import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
-
 // Configs 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -104,6 +109,13 @@ export function getAuthServiceConfigs() {
     RegisterComponent,
     UpdatePasswordComponent,
     ListHouseComponent,
+
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    ProfileComponent,
+    ShowAuthedDirective,
+
     // UpdateUserInformationComponent,
     // ListAccountComponent,
     // ListCustomerComponent,
